@@ -9,6 +9,7 @@ import { Brief } from './Brief';
 import { MESSAGES } from '../../constants/messages';
 import { ROUTES } from '../../constants/routes';
 import { STATUS } from '../../constants/status';
+import { productService } from '../../adapters/productService';
 
 export const Checkout = () => {
   const { cart, clearCart } = useContext(CartContext);
@@ -48,16 +49,33 @@ export const Checkout = () => {
       return;
     }
 
-    // Pass: Simulate async order submission
+    // Submit order to API endpoint
     setCheckoutStatus(STATUS.LOADING);
     
-    // Simulate database insertion and order confirmation
-    setTimeout(() => {
-      const generatedId = `ORD-${Math.floor(100000 + Math.random() * 900000)}`;
-      setOrderId(generatedId);
-      setCheckoutStatus(STATUS.SUCCESS);
-      clearCart(); // Domain Rule: Clear cart once order is confirmed
-    }, 1500);
+    const orderPayload = {
+      buyer: {
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email
+      },
+      items: cart.map((item) => ({
+        id: item.id,
+        quantity: item.quantity,
+        price: item.price,
+        title: item.title
+      }))
+    };
+
+    productService.createOrder(orderPayload)
+      .then((res) => {
+        setOrderId(res.orderId);
+        setCheckoutStatus(STATUS.SUCCESS);
+        clearCart(); // Domain Rule: Clear cart once order is confirmed
+      })
+      .catch((err) => {
+        setErrorMsg(err.message || 'Error processing purchase');
+        setCheckoutStatus(STATUS.ERROR);
+      });
   };
 
   // Success view after completing purchase
