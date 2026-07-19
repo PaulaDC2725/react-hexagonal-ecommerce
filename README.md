@@ -1,4 +1,4 @@
-# 🛒 React Hexagonal E-Commerce
+# React Hexagonal E-Commerce
 
 Aplicación web de comercio electrónico desarrollada con **React**, **Vite** y **React-Bootstrap**, implementando los principios de la **Arquitectura Hexagonal (Ports & Adapters)**.
 
@@ -6,7 +6,7 @@ Incluye una **API independiente en Node.js** para la gestión de productos y pro
 
 ---
 
-## 🏛️ Estructura de Arquitectura Hexagonal
+## Estructura de Arquitectura Hexagonal
 
 El proyecto está diseñado manteniendo una clara separación de responsabilidades:
 
@@ -18,7 +18,7 @@ El proyecto está diseñado manteniendo una clara separación de responsabilidad
 
 ---
 
-## 🚀 Requisitos Previos
+## Requisitos Previos
 
 Asegúrate de tener instalado:
 - **Node.js** (versión 18 o superior)
@@ -26,7 +26,7 @@ Asegúrate de tener instalado:
 
 ---
 
-## 🛠️ Instrucciones de Instalación y Ejecución
+## Instrucciones de Instalación y Ejecución
 
 ### 1. Clonar el repositorio e instalar dependencias
 
@@ -65,7 +65,7 @@ La API estará disponible en `http://localhost:5000`:
 
 ---
 
-## 📋 Guía de Prueba y Evaluación Paso a Paso
+## Guía de Prueba y Evaluación Paso a Paso
 
 Sigue esta secuencia para evaluar todas las funcionalidades del proyecto:
 
@@ -95,7 +95,7 @@ Sigue esta secuencia para evaluar todas las funcionalidades del proyecto:
 
 ---
 
-## 🛠️ Comandos Principales
+## Comandos Principales
 
 | Comando | Descripción |
 | :--- | :--- |
@@ -105,6 +105,6 @@ Sigue esta secuencia para evaluar todas las funcionalidades del proyecto:
 
 ---
 
-## 📄 Licencia
+## Licencia
 
-Este proyecto fue desarrollado como parte de un proyecto educativo y demostrativo de Arquitectura Hexagonal en React.
+Este proyecto fue desarrollado como parte de una prueba técnica.
