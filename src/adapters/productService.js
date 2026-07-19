@@ -1,7 +1,9 @@
 // Infrastructure Adapter: Data access layer fetching from independent REST API endpoint.
 // Connects UI / domain logic to real HTTP endpoints (/api/products and /api/orders).
 
-const BASE_URL = '/api';
+const RAW_BASE_URL = import.meta.env.VITE_BASE_URL || '';
+const CLEAN_BASE = RAW_BASE_URL.replace(/\/$/, '');
+const BASE_URL = CLEAN_BASE ? `${CLEAN_BASE}/api` : '/api';
 
 export const productService = {
   /**
