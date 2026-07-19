@@ -1,54 +1,54 @@
 [
   {
     "id": "prod-01",
-    "title": "AeroType Mechanical Keyboard",
-    "description": "A premium 75% mechanical keyboard with hot-swappable tactile switches, double-shot PBT keycaps, and custom RGB lighting.",
-    "price": 189.99,
+    "title": "Teclado mecánico AeroType",
+    "description": "Un teclado mecánico premium del 75% con interruptores táctiles intercambiables en caliente, teclas PBT de doble disparo e iluminación RGB personalizada.",
+    "price": 189000,
     "pictureUrl": "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=600&q=80",
     "stock": 8,
     "category": "keyboards"
   },
   {
     "id": "prod-02",
-    "title": "ApexGlide Wireless Mouse",
-    "description": "Ultra-lightweight ergonomic gaming mouse featuring a 26K DPI optical sensor, optical switches, and up to 80 hours of battery life.",
-    "price": 99.99,
+    "title": "Ratón inalámbrico ApexGlide",
+    "description": "Ratón ergonómico inalámbrico de juego ultra-ligero con sensor óptico de 26K DPI, interruptores ópticos y hasta 80 horas de autonomía.",
+    "price": 100000,
     "pictureUrl": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=600&q=80",
     "stock": 15,
     "category": "mice"
   },
   {
     "id": "prod-03",
-    "title": "SoundArch ANC Headphones",
-    "description": "Studio-grade over-ear wireless headphones with hybrid active noise cancellation, high-resolution audio drivers, and comfortable memory foam earcups.",
-    "price": 249.99,
+    "title": "Auriculares inalámbricos SoundWave Pro",
+    "description": "Auriculares inalámbricos de studio con cancelación de ruido activa híbrida, controladores de audio de alta resolución y almohadillas de memoria para un confort óptimo.",
+    "price": 250000,
     "pictureUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80",
     "stock": 5,
     "category": "audio"
   },
   {
     "id": "prod-04",
-    "title": "MatteDesk Merino Wool Felt Mat",
-    "description": "Minimalist desktop mat crafted from natural water-resistant merino wool felt, featuring a non-slip cork backing for maximum comfort.",
-    "price": 59.99,
+    "title": "Alfombrilla de fieltro de lana merino MatteDesk",
+    "description": "Alfombra de escritorio minimalista elaborada con fieltro de lana merina natural resistente al agua, con un respaldo de corcho antideslizante para la máxima comodidad.",
+    "price": 60000,
     "pictureUrl": "https://ulxstore.com/cdn/shop/files/DSC08241.jpg?v=1700230224&width=1920?auto=format&fit=crop&w=600&q=80",
     "stock": 12,
     "category": "accessories"
   },
   {
     "id": "prod-05",
-    "title": "RGB Custom Cable Co.",
-    "description": "Coiled double-sleeved paracord keyboard cable with GX16 aviator connector. Perfect for aesthetic setup customization.",
-    "price": 34.99,
+    "title": "Cable personalizado RGB Co.",
+    "description": "Cable de teclado con doble recubrimiento de paracord enrollado y conector aviator GX16. Perfecto para la personalización del setup estético.",
+    "price": 34990,
     "pictureUrl": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80",
     "stock": 20,
     "category": "keyboards"
   },
   {
     "id": "prod-06",
-    "title": "ProGlide Ergonomic Wrist Rest",
-    "description": "Ergonomic solid walnut wood wrist rest designed to reduce wrist strain during long typing or gaming sessions.",
-    "price": 45.00,
+    "title": "Muñequera ProGlide Ergonomic",
+    "description": "Descanso ergonómico de madera de nogal sólida diseñado para reducir la tensión en la muñeca durante sesiones prolongadas de escritura o juego.",
+    "price": 45000,
     "pictureUrl": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80",
     "stock": 3,
     "category": "accessories"
