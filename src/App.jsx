@@ -1,6 +1,4 @@
-// Presentation & Orchestration Layer: Entrypoint React component.
-// Integrates the global domain state providers (CartProvider), layout scaffolding (NavBar, Footer), and the react-router-dom routes.
-
+// Componente principal: Orquestación de rutas y proveedores de estado
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
@@ -15,7 +13,6 @@ function App() {
   return (
     <CartProvider>
       <BrowserRouter>
-        {/* Main Application Layout Scaffolding */}
         <NavBar />
         
         <main className="main-content py-4 bg-light">
@@ -28,11 +25,10 @@ function App() {
           </Routes>
         </main>
         
-        {/* Visual Footer component */}
         <footer className="bg-dark text-light py-4 border-top border-secondary mt-auto">
           <div className="container text-center">
-            <p className="mb-1 fw-semibold">&copy; 2026 HEXASTORE. All rights reserved.</p>
-            <p className="text-muted small mb-0">Clean Hexagonal Frontend Architecture Design</p>
+            <p className="mb-1 fw-semibold">&copy; 2026 HEXASTORE. Todos los derechos reservados.</p>
+            <p className="text-muted small mb-0">Arquitectura Hexagonal en React</p>
           </div>
         </footer>
       </BrowserRouter>

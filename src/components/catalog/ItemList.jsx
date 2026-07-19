@@ -1,6 +1,4 @@
-// Presentation Layer: Pure rendering component to map a collection of products into grid cells.
-// Decoupled from fetching logic; expects an array of validated product items.
-
+// Componente de presentación: Renderiza la cuadrícula de productos
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Item } from './Item';

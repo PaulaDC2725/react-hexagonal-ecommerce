@@ -1,13 +1,11 @@
-// Infrastructure Adapter: Data access layer fetching from independent REST API endpoint.
-// Connects UI / domain logic to real HTTP endpoints (/api/products and /api/orders).
-
+// Adaptador de Infraestructura: Capa de acceso a datos a través de endpoints REST
 const RAW_BASE_URL = import.meta.env.VITE_BASE_URL || '';
 const CLEAN_BASE = RAW_BASE_URL.replace(/\/$/, '');
 const BASE_URL = CLEAN_BASE ? `${CLEAN_BASE}/api` : '/api';
 
 export const productService = {
   /**
-   * Fetches products from API, optionally filtered by category.
+   * Obtiene la lista de productos (opcionalmente filtrada por categoría)
    * @param {string} [categoryId]
    * @returns {Promise<Array>}
    */
@@ -19,17 +17,17 @@ export const productService = {
 
       const response = await fetch(url);
       if (!response.ok) {
-        throw new Error(`Error fetching products: ${response.statusText}`);
+        throw new Error(`Error al obtener productos: ${response.statusText}`);
       }
       return await response.json();
     } catch (error) {
-      console.error('productService.getProducts error:', error);
+      console.error('Error en productService.getProducts:', error);
       throw error;
     }
   },
 
   /**
-   * Fetches a single product by ID from API.
+   * Obtiene un producto por su ID
    * @param {string} id
    * @returns {Promise<Object|null>}
    */
@@ -40,19 +38,19 @@ export const productService = {
         return null;
       }
       if (!response.ok) {
-        throw new Error(`Error fetching product ${id}: ${response.statusText}`);
+        throw new Error(`Error al obtener producto ${id}: ${response.statusText}`);
       }
       return await response.json();
     } catch (error) {
-      console.error(`productService.getProductById error (${id}):`, error);
+      console.error(`Error en productService.getProductById (${id}):`, error);
       throw error;
     }
   },
 
   /**
-   * Creates an order and updates stock in the database/endpoint via POST.
+   * Crea una orden y descuenta el stock en la API mediante POST
    * @param {Object} orderData - { buyer, items }
-   * @returns {Promise<Object>} Created order details including orderId
+   * @returns {Promise<Object>} Datos de la orden creada
    */
   createOrder: async (orderData) => {
     try {
@@ -67,12 +65,12 @@ export const productService = {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to place order and update stock');
+        throw new Error(data.error || 'No se pudo completar la orden');
       }
 
       return data;
     } catch (error) {
-      console.error('productService.createOrder error:', error);
+      console.error('Error en productService.createOrder:', error);
       throw error;
     }
   }

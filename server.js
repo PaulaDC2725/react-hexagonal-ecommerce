@@ -1,3 +1,4 @@
+// Servidor HTTP independiente para la API de productos y órdenes
 import http from 'http';
 import { handleApiRequest } from './src/server/apiRouter.js';
 
@@ -8,12 +9,12 @@ const server = http.createServer((req, res) => {
   if (handled === false) {
     res.statusCode = 404;
     res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ error: 'Endpoint not found' }));
+    res.end(JSON.stringify({ error: 'Endpoint no encontrado' }));
   }
 });
 
 server.listen(PORT, () => {
-  console.log(`🚀 Independent Products API Server running on http://localhost:${PORT}`);
+  console.log(`Servidor de API ejecutándose en http://localhost:${PORT}`);
   console.log(`   GET  http://localhost:${PORT}/api/products`);
   console.log(`   GET  http://localhost:${PORT}/api/products/:id`);
   console.log(`   POST http://localhost:${PORT}/api/orders`);

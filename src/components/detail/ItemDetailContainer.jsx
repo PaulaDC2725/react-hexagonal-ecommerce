@@ -1,6 +1,4 @@
-// Presentation Layer: Container component for the product detail view.
-// Extracts the product identifier from URL params, calls the single product fetch port, and coordinates rendering states.
-
+// Componente contenedor: Carga el detalle del producto mediante la URL y maneja los estados de carga
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Container, Spinner, Alert, Button } from 'react-bootstrap';
@@ -32,7 +30,7 @@ export const ItemDetailContainer = () => {
       {status === STATUS.ERROR && (
         <Alert variant="danger" className="text-center my-4 py-3 shadow-sm">
           <Alert.Heading>{MESSAGES.DETAIL.ERROR}</Alert.Heading>
-          <p className="mb-0">{error?.message || 'Unexpected connection fault.'}</p>
+          <p className="mb-0">{error?.message || 'Error de conexión inesperado.'}</p>
         </Alert>
       )}
 

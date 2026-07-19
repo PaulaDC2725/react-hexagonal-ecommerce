@@ -1,6 +1,4 @@
-// Presentation Layer: Container component for the product catalog.
-// Responsible for extracting route params, invoking the products port hook, and managing UI lifecycle states.
-
+// Componente contenedor: Maneja parámetros de ruta y estados del catálogo de productos
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Container, Spinner, Alert } from 'react-bootstrap';
@@ -15,17 +13,15 @@ export const ItemListContainer = () => {
 
   return (
     <Container className="my-5">
-      {/* Catalog Greeting Header */}
       <div className="text-center mb-5 p-4 bg-light rounded shadow-sm border-start border-primary border-4">
         <h1 className="display-5 fw-bold text-dark text-capitalize">
-          {categoryId ? `${categoryId} Catalog` : 'Explore Our Shop'}
+          {categoryId ? `Catálogo de ${categoryId}` : 'Explora Nuestra Tienda'}
         </h1>
         <p className="lead text-muted mb-0">
           {MESSAGES.CATALOG.WELCOME_GREETING}
         </p>
       </div>
 
-      {/* State Transitions */}
       {status === STATUS.LOADING && (
         <div className="d-flex flex-column justify-content-center align-items-center my-5 py-5">
           <Spinner animation="border" variant="primary" role="status" className="mb-3" />
@@ -36,7 +32,7 @@ export const ItemListContainer = () => {
       {status === STATUS.ERROR && (
         <Alert variant="danger" className="text-center my-4 py-3 shadow-sm">
           <Alert.Heading>{MESSAGES.CATALOG.ERROR}</Alert.Heading>
-          <p className="mb-0">{error?.message || 'Unexpected connection fault.'}</p>
+          <p className="mb-0">{error?.message || 'Error de conexión inesperado.'}</p>
         </Alert>
       )}
 

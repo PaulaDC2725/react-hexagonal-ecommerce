@@ -1,6 +1,4 @@
-// Presentation Layer: Incremental numeric control for product quantities.
-// Implements business constraints (stock limits and minimum purchase of 1) at component boundaries.
-
+// Componente de presentación: Selector numérico de cantidad con control de stock
 import React from 'react';
 import { InputGroup, Button, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,7 +7,7 @@ import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 export const ItemQuantitySelector = ({ quantity, stock, onIncrement, onDecrement }) => {
   return (
     <div className="w-100 mb-4" style={{ maxWidth: '180px' }}>
-      <Form.Label className="text-muted small fw-semibold mb-2">Quantity</Form.Label>
+      <Form.Label className="text-muted small fw-semibold mb-2">Cantidad</Form.Label>
       <InputGroup className="shadow-sm border rounded">
         <Button 
           variant="light" 
@@ -37,7 +35,7 @@ export const ItemQuantitySelector = ({ quantity, stock, onIncrement, onDecrement
         </Button>
       </InputGroup>
       <div className="text-muted small mt-2">
-        Available: {stock} units
+        Disponibles: {stock} unidades
       </div>
     </div>
   );

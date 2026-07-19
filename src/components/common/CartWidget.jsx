@@ -1,6 +1,4 @@
-// Presentation Layer: Displays cart icon and current badge count.
-// Pure view component connected to CartContext to retrieve the item count.
-
+// Componente de presentación: Widget del carrito con indicador de cantidad
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Badge } from 'react-bootstrap';

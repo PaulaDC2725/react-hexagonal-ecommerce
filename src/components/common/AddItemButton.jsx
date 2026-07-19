@@ -1,6 +1,4 @@
-// Presentation Layer: Reusable click-to-action button for adding items to cart.
-// Decoupled from cart state; receives click handlers and state via props.
-
+// Componente de presentación: Botón reutilizable para agregar productos al carrito
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

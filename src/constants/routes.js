@@ -1,4 +1,4 @@
-// Responsibility: Centralize all application route paths to avoid hardcoded route URLs (Magic Strings).
+// Ruta centralizada de navegación de la aplicación
 export const ROUTES = {
   HOME: '/',
   CATEGORY: '/category/:categoryId',

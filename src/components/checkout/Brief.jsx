@@ -1,7 +1,4 @@
-// Presentation Layer: Order summary panel (Brief).
-// Lists products, selected quantities, individual pricing, and calculates subtotals.
-// Can be toggled as read-only for final checkout stages.
-
+// Componente de presentación: Panel resumen del pedido (Brief)
 import React, { useContext } from 'react';
 import { Table, Button, Image } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -25,9 +22,9 @@ export const Brief = ({ readOnly = false }) => {
       <Table hover responsive className="align-middle">
         <thead>
           <tr className="text-muted border-bottom small">
-            <th style={{ width: '45%' }}>Product</th>
-            <th className="text-center">Quantity</th>
-            <th className="text-end">Price</th>
+            <th style={{ width: '45%' }}>Producto</th>
+            <th className="text-center">Cantidad</th>
+            <th className="text-end">Precio</th>
             <th className="text-end">Subtotal</th>
             {!readOnly && <th className="text-center" style={{ width: '50px' }}></th>}
           </tr>
@@ -50,8 +47,8 @@ export const Brief = ({ readOnly = false }) => {
                 </div>
               </td>
               <td className="text-center fw-semibold">{item.quantity}</td>
-              <td className="text-end text-muted">${item.price.toFixed(2)}</td>
-              <td className="text-end fw-bold text-dark">${(item.price * item.quantity).toFixed(2)}</td>
+              <td className="text-end text-muted">${item.price.toLocaleString('es-CO')}</td>
+              <td className="text-end fw-bold text-dark">${(item.price * item.quantity).toLocaleString('es-CO')}</td>
               {!readOnly && (
                 <td className="text-center">
                   <Button 
@@ -77,7 +74,7 @@ export const Brief = ({ readOnly = false }) => {
         )}
         <div className="ms-auto text-end">
           <span className="text-muted small d-block mb-1">{MESSAGES.CART.TOTAL}</span>
-          <h4 className="fw-bold text-primary mb-0">${totalPrice.toFixed(2)}</h4>
+          <h4 className="fw-bold text-primary mb-0">${totalPrice.toLocaleString('es-CO')}</h4>
         </div>
       </div>
     </div>

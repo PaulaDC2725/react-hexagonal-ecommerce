@@ -1,6 +1,4 @@
-// Domain / State Layer: Manages core shopping cart business rules, calculations, and stock validations.
-// Ensures that components only interact with cart state through validated domain interfaces.
-
+// Capa de Dominio / Estado: Gestiona las reglas de negocio del carrito de compras
 import React, { createContext, useState } from 'react';
 
 export const CartContext = createContext();
@@ -9,10 +7,10 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   /**
-   * Adds an item to the cart, verifying available stock limit.
-   * @param {Object} product - Product to add.
-   * @param {number} quantity - Quantity of the product.
-   * @returns {boolean} - True if added successfully, false if stock exceeded or capped.
+   * Agrega un producto al carrito verificando el límite de stock disponible
+   * @param {Object} product
+   * @param {number} quantity
+   * @returns {boolean}
    */
   const addItem = (product, quantity) => {
     if (quantity <= 0) return false;
@@ -24,9 +22,8 @@ export const CartProvider = ({ children }) => {
       const newQty = currentQty + quantity;
 
       if (newQty > product.stock) {
-        // Business Rule: Cannot add more than the available stock.
-        console.warn(`Stock limit reached for ${product.title}. Available: ${product.stock}, Requested: ${newQty}`);
-        // Cap the quantity at maximum stock
+        // Regla de Negocio: No se puede superar el stock disponible
+        console.warn(`Límite de stock alcanzado para ${product.title}. Disponible: ${product.stock}, Solicitado: ${newQty}`);
         const updatedCart = [...cart];
         updatedCart[existingIndex].quantity = product.stock;
         setCart(updatedCart);
@@ -39,8 +36,8 @@ export const CartProvider = ({ children }) => {
       return true;
     } else {
       if (quantity > product.stock) {
-        // Business Rule: Cannot exceed initial stock
-        console.warn(`Stock limit reached for ${product.title}. Available: ${product.stock}, Requested: ${quantity}`);
+        // Regla de Negocio: No se puede superar el stock inicial
+        console.warn(`Límite de stock alcanzado para ${product.title}. Disponible: ${product.stock}, Solicitado: ${quantity}`);
         setCart([...cart, { ...product, quantity: product.stock }]);
         return false;
       }
@@ -50,7 +47,7 @@ export const CartProvider = ({ children }) => {
   };
 
   /**
-   * Removes a product from the cart by its ID.
+   * Elimina un producto del carrito por su ID
    * @param {string} itemId
    */
   const removeItem = (itemId) => {
@@ -58,14 +55,14 @@ export const CartProvider = ({ children }) => {
   };
 
   /**
-   * Clears all items from the cart.
+   * Limpia todos los artículos del carrito
    */
   const clearCart = () => {
     setCart([]);
   };
 
   /**
-   * Checks if a product is in the cart.
+   * Verifica si un producto está en el carrito
    * @param {string} itemId
    * @returns {boolean}
    */
@@ -74,7 +71,7 @@ export const CartProvider = ({ children }) => {
   };
 
   /**
-   * Calculates total quantity of items.
+   * Calcula la cantidad total de artículos en el carrito
    * @returns {number}
    */
   const getTotalItems = () => {
@@ -82,7 +79,7 @@ export const CartProvider = ({ children }) => {
   };
 
   /**
-   * Calculates total monetary cost of all items in cart.
+   * Calcula el precio total del carrito
    * @returns {number}
    */
   const getTotalPrice = () => {

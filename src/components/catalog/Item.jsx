@@ -1,6 +1,4 @@
-// Presentation Layer: Individual product preview card.
-// Renders basic details (name, image, price) and provides navigation to its detailed view.
-
+// Componente de presentación: Tarjeta vista previa de producto individual
 import React from 'react';
 import { Card, Button, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -38,7 +36,7 @@ export const Item = ({ product }) => {
         
         <div className="mt-auto">
           <div className="d-flex justify-content-between align-items-center mb-3">
-            <span className="fs-4 fw-bold text-primary">${product.price.toFixed(2)}</span>
+            <span className="fs-4 fw-bold text-primary">${product.price.toLocaleString('es-CO')}</span>
             <span className="text-muted small">Stock: {product.stock}</span>
           </div>
           <Button 
@@ -47,7 +45,7 @@ export const Item = ({ product }) => {
             variant="outline-primary" 
             className="w-100 py-2 fw-semibold"
           >
-            View Details
+            Ver detalle
           </Button>
         </div>
       </Card.Body>

@@ -1,12 +1,10 @@
-// Port: Custom hooks that isolate the UI layer from the infrastructure adapter contracts.
-// Acts as a clean boundary so UI components do not depend directly on database/API services.
-
+// Puerto: Hooks personalizados que aíslan la UI de la capa de infraestructura
 import { useState, useEffect } from 'react';
 import { productService } from '../adapters/productService';
 import { STATUS } from '../constants/status';
 
 /**
- * Port Hook to fetch and manage a list of products (optionally filtered by category).
+ * Hook para obtener y gestionar la lista de productos
  * @param {string} [categoryId]
  * @returns {{products: Array, status: string, error: Error|null}}
  */
@@ -43,7 +41,7 @@ export const useProducts = (categoryId) => {
 };
 
 /**
- * Port Hook to fetch and manage a single product detail by ID.
+ * Hook para obtener el detalle de un producto por ID
  * @param {string} itemId
  * @returns {{product: Object|null, status: string, error: Error|null}}
  */

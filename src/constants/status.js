@@ -1,4 +1,4 @@
-// Responsibility: Centralize API and component state statuses to guarantee consistent state management.
+// Estados de ciclo de vida de peticiones y componentes
 export const STATUS = {
   IDLE: 'IDLE',
   LOADING: 'LOADING',

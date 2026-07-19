@@ -1,6 +1,4 @@
-// Presentation Layer: Shopping Cart main view.
-// Displays the Brief (list, quantity, subtotals) and offers primary actions like checkout navigation or catalog redirect.
-
+// Componente de presentación: Vista principal del carrito de compras
 import React, { useContext } from 'react';
 import { Container, Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -19,7 +17,7 @@ export const CartView = () => {
           <h2 className="fw-bold mb-3">{MESSAGES.CART.EMPTY_TITLE}</h2>
           <p className="text-muted mb-4">{MESSAGES.CART.EMPTY_SUBTITLE}</p>
           <Button as={Link} to={ROUTES.HOME} variant="primary" className="mx-auto px-4 py-2">
-            Continue Shopping
+            Continuar Comprando
           </Button>
         </Card>
       </Container>

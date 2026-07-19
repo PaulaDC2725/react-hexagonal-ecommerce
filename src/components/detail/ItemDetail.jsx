@@ -1,6 +1,4 @@
-// Presentation Layer: Renders details of a single product.
-// Integrates domain state (CartContext) and sub-components (ItemQuantitySelector, AddItemButton) to orchestrate product purchasing.
-
+// Componente de presentación: Detalle individual del producto
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col, Badge, Card, Button, Alert } from 'react-bootstrap';
@@ -37,7 +35,6 @@ export const ItemDetail = ({ product }) => {
   return (
     <Card className="border-0 shadow p-4 rounded bg-white">
       <Row className="g-5 align-items-center">
-        {/* Product Image Column */}
         <Col md={6}>
           <div className="rounded overflow-hidden border" style={{ maxHeight: '480px' }}>
             <img 
@@ -49,7 +46,6 @@ export const ItemDetail = ({ product }) => {
           </div>
         </Col>
 
-        {/* Product Information Column */}
         <Col md={6}>
           <div className="d-flex flex-column justify-content-center">
             <div className="mb-3">
@@ -57,7 +53,7 @@ export const ItemDetail = ({ product }) => {
                 {product.category}
               </Badge>
               <h2 className="fw-bold text-dark display-6 mb-2">{product.title}</h2>
-              <span className="fs-3 fw-bold text-primary">${product.price.toFixed(2)}</span>
+              <span className="fs-3 fw-bold text-primary">${product.price.toLocaleString('es-CO')}</span>
             </div>
 
             <p className="text-muted mb-4 lead" style={{ fontSize: '1rem', lineHeight: '1.6' }}>
@@ -84,13 +80,13 @@ export const ItemDetail = ({ product }) => {
                   <div className="mt-2">
                     <Alert variant="success" className="d-flex flex-column align-items-center text-center p-4 rounded border-0 shadow-sm">
                       <h5 className="alert-heading fw-bold mb-2">{MESSAGES.DETAIL.ADDED_SUCCESS}</h5>
-                      <p className="small mb-3">You selected {quantity} units of this item.</p>
+                      <p className="small mb-3">Seleccionaste {quantity} unidades de este producto.</p>
                       <div className="d-flex gap-2 w-100 justify-content-center">
                         <Button as={Link} to={ROUTES.CART} variant="success" className="px-4 py-2 fw-bold shadow-sm">
-                          Go to Cart
+                          Ir al Carrito
                         </Button>
                         <Button as={Link} to={ROUTES.HOME} variant="outline-success" className="px-4 py-2 fw-semibold">
-                          Continue Shopping
+                          Continuar Comprando
                         </Button>
                       </div>
                     </Alert>

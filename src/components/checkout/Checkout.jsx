@@ -1,6 +1,4 @@
-// Presentation Layer: Checkout process coordinator.
-// Manages customer billing forms, validation rules, mock order serialization, and rendering success/processing screens.
-
+// Componente de presentación: Coordinador del proceso de checkout y confirmación de compra
 import React, { useState, useContext } from 'react';
 import { Container, Row, Col, Form, Button, Alert, Card, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -36,7 +34,7 @@ export const Checkout = () => {
     e.preventDefault();
     setErrorMsg(null);
 
-    // Simple manual validation checks
+    // Validación manual de campos requeridos
     if (!formData.name || !formData.phone || !formData.email || !formData.emailConfirm) {
       setErrorMsg(MESSAGES.CHECKOUT.VALIDATION_ERROR);
       setValidated(true);
@@ -44,12 +42,12 @@ export const Checkout = () => {
     }
 
     if (formData.email !== formData.emailConfirm) {
-      setErrorMsg('Email addresses do not match.');
+      setErrorMsg('Los correos electrónicos no coinciden.');
       setValidated(true);
       return;
     }
 
-    // Submit order to API endpoint
+    // Enviar orden a la API
     setCheckoutStatus(STATUS.LOADING);
     
     const orderPayload = {
@@ -70,15 +68,15 @@ export const Checkout = () => {
       .then((res) => {
         setOrderId(res.orderId);
         setCheckoutStatus(STATUS.SUCCESS);
-        clearCart(); // Domain Rule: Clear cart once order is confirmed
+        clearCart();
       })
       .catch((err) => {
-        setErrorMsg(err.message || 'Error processing purchase');
+        setErrorMsg(err.message || 'Error al procesar la compra');
         setCheckoutStatus(STATUS.ERROR);
       });
   };
 
-  // Success view after completing purchase
+  // Vista tras completar la compra con éxito
   if (checkoutStatus === STATUS.SUCCESS) {
     return (
       <Container className="my-5 py-5 text-center" style={{ maxWidth: '600px' }}>
@@ -94,7 +92,7 @@ export const Checkout = () => {
           </Card.Text>
           <div className="d-grid">
             <Button as={Link} to={ROUTES.HOME} variant="primary" size="lg" className="fw-semibold">
-              Return to Home
+              Volver al Inicio
             </Button>
           </div>
         </Card>
@@ -102,20 +100,20 @@ export const Checkout = () => {
     );
   }
 
-  // Loading/Processing View
+  // Vista de carga / procesamiento
   if (checkoutStatus === STATUS.LOADING) {
     return (
       <Container className="my-5 py-5 text-center">
         <div className="d-flex flex-column align-items-center justify-content-center py-5">
           <Spinner animation="border" variant="primary" style={{ width: '4rem', height: '4rem' }} className="mb-4" />
           <h4 className="fw-semibold text-dark">{MESSAGES.CHECKOUT.PROCESSING}</h4>
-          <p className="text-muted">Securing stock and preparing order summary...</p>
+          <p className="text-muted">Reservando stock y generando orden...</p>
         </div>
       </Container>
     );
   }
 
-  // Cart is Empty view
+  // Vista si el carrito está vacío
   if (cart.length === 0) {
     return (
       <Container className="my-5 text-center py-5">
@@ -123,7 +121,7 @@ export const Checkout = () => {
           <h2 className="fw-bold mb-3">{MESSAGES.CART.EMPTY_TITLE}</h2>
           <p className="text-muted mb-4">{MESSAGES.CART.EMPTY_SUBTITLE}</p>
           <Button as={Link} to={ROUTES.HOME} variant="primary" className="mx-auto px-4 py-2">
-            Continue Shopping
+            Continuar Comprando
           </Button>
         </Card>
       </Container>
@@ -134,7 +132,6 @@ export const Checkout = () => {
     <Container className="my-5">
       <h1 className="fw-bold mb-4 text-dark">{MESSAGES.CHECKOUT.TITLE}</h1>
       <Row className="g-5">
-        {/* Customer Information Form */}
         <Col lg={7}>
           <Card className="border-0 shadow p-4 rounded bg-white">
             <Card.Title className="fw-bold mb-4 text-dark">{MESSAGES.CHECKOUT.FORM_TITLE}</Card.Title>
@@ -142,10 +139,10 @@ export const Checkout = () => {
             
             <Form onSubmit={handleFormSubmit} noValidate>
               <Form.Group className="mb-3" controlId="formFullName">
-                <Form.Label className="fw-semibold small text-muted">Full Name</Form.Label>
+                <Form.Label className="fw-semibold small text-muted">Nombre Completo</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Enter your name"
+                  placeholder="Ingresa tu nombre completo"
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
@@ -158,10 +155,10 @@ export const Checkout = () => {
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formPhone">
-                <Form.Label className="fw-semibold small text-muted">Phone Number</Form.Label>
+                <Form.Label className="fw-semibold small text-muted">Número de Teléfono</Form.Label>
                 <Form.Control
                   type="tel"
-                  placeholder="e.g. +1 555-0199"
+                  placeholder="Ej. +57 300 123 4567"
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
@@ -174,10 +171,10 @@ export const Checkout = () => {
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formEmail">
-                <Form.Label className="fw-semibold small text-muted">Email Address</Form.Label>
+                <Form.Label className="fw-semibold small text-muted">Correo Electrónico</Form.Label>
                 <Form.Control
                   type="email"
-                  placeholder="name@example.com"
+                  placeholder="nombre@ejemplo.com"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
@@ -190,10 +187,10 @@ export const Checkout = () => {
               </Form.Group>
 
               <Form.Group className="mb-4" controlId="formEmailConfirm">
-                <Form.Label className="fw-semibold small text-muted">Confirm Email Address</Form.Label>
+                <Form.Label className="fw-semibold small text-muted">Confirmar Correo Electrónico</Form.Label>
                 <Form.Control
                   type="email"
-                  placeholder="Re-enter name@example.com"
+                  placeholder="Reingresa tu correo electrónico"
                   name="emailConfirm"
                   value={formData.emailConfirm}
                   onChange={handleInputChange}
@@ -201,7 +198,7 @@ export const Checkout = () => {
                   required
                 />
                 <Form.Control.Feedback type="invalid">
-                  Email addresses must match.
+                  Los correos electrónicos deben coincidir.
                 </Form.Control.Feedback>
               </Form.Group>
 
@@ -212,7 +209,6 @@ export const Checkout = () => {
           </Card>
         </Col>
 
-        {/* Order Brief Summary */}
         <Col lg={5}>
           <Card className="border-0 shadow p-4 rounded bg-light">
             <Card.Title className="fw-bold mb-4 text-dark">{MESSAGES.CHECKOUT.ORDER_SUMMARY}</Card.Title>

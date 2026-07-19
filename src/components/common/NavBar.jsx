@@ -1,6 +1,4 @@
-// Presentation Layer: Layout navigation bar.
-// Displays the brand, links to category views, and embeds the CartWidget.
-
+// Componente de presentación: Barra de navegación principal
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Navbar, Container, Nav } from 'react-bootstrap';
@@ -20,19 +18,19 @@ export const NavBar = () => {
         <Navbar.Collapse id="main-navbar-nav">
           <Nav className="me-auto ms-4">
             <Nav.Link as={NavLink} to={ROUTES.HOME} end className={({ isActive }) => isActive ? "text-primary fw-semibold mx-2" : "text-light-50 mx-2"}>
-              All Products
+              Todos los productos
             </Nav.Link>
             <Nav.Link as={NavLink} to="/category/keyboards" className={({ isActive }) => isActive ? "text-primary fw-semibold mx-2" : "text-light-50 mx-2"}>
-              Keyboards
+              Teclados
             </Nav.Link>
             <Nav.Link as={NavLink} to="/category/mice" className={({ isActive }) => isActive ? "text-primary fw-semibold mx-2" : "text-light-50 mx-2"}>
-              Mice
+              Ratones
             </Nav.Link>
             <Nav.Link as={NavLink} to="/category/audio" className={({ isActive }) => isActive ? "text-primary fw-semibold mx-2" : "text-light-50 mx-2"}>
               Audio
             </Nav.Link>
             <Nav.Link as={NavLink} to="/category/accessories" className={({ isActive }) => isActive ? "text-primary fw-semibold mx-2" : "text-light-50 mx-2"}>
-              Accessories
+              Accesorios
             </Nav.Link>
           </Nav>
           
